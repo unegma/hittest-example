@@ -34,7 +34,7 @@ export default function RelicOne({relic, cameraPosition, minDistance, maxDistanc
         )}
 
         <ambientLight/>
-        {/*<pointLight intensity={1} position={[0, 0, 0]}/>*/}
+        <pointLight intensity={1} position={[0, 0, 0]}/>
         <PerspectiveCamera position={cameraPosition} makeDefault/>
 
         <Suspense fallback={<Html className="white">loading 3d view..</Html>}>

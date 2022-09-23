@@ -20,29 +20,11 @@ export default function LeftSideDrawer(
     title: SUBMENU_TITLE,
     items: [
       {
-        key: 'lion',
-        name: "Lion",
-        infoTitle: "This is a Lion",
-        infoText: "This is a description about a Lion",
-      },
-      {
-        key: 'car',
-        name: "Car",
-        infoTitle: "This is a Car",
-        infoText: "This is a description about a Car",
-      },
-      {
-        key: 'pitcher',
-        name: "Pitcher",
-        infoTitle: "This is a Pitcher Plant",
-        infoText: "This is a description about a Pitcher Plant",
-      },
-      {
-        key: 'statue',
-        name: "Statue",
-        infoTitle: "This is a Statue",
-        infoText: "This is a description about a Statue",
-      },
+        key: 'lion-ring',
+        name: "Lion Ring",
+        infoTitle: "This is a Lion Ring",
+        infoText: "This is a description about a Lion Ring",
+      }
     ]
   };
 

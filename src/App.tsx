@@ -12,10 +12,7 @@ import HomeScreen from "./components/pages/HomeScreen";
 import DashboardScreen from "./components/pages/DashboardScreen";
 import RelicOne from "./components/pages/RelicOne";
 import RightSideDrawer from "./components/layout/RightSideDrawer";
-import Lion from "./components/3d/Lion";
-import Pitcher from "./components/3d/Pitcher";
-import Car from "./components/3d/Car";
-import Statue from "./components/3d/Statue";
+import LionRing from "./components/3d/LionRing";
 // import BookingModal from "./components/BookingModal";
 
 function App() {
@@ -97,33 +94,10 @@ function App() {
         />
 
         <Route
-          key={'lion'}
-          path="/lion"
+          key={'lion-ring'}
+          path="/lion-ring"
           element={
-            <RelicOne rotationLock={false} cameraPosition={[-5,5,-5]} minDistance={4} maxDistance={10} relic={<Lion />}/>
-          }
-        />
-
-        <Route
-          key={'pitcher'}
-          path="/pitcher"
-          element={
-            <RelicOne rotationLock={true} cameraPosition={[-1.5,1.5,-1.5]} minDistance={1.5} maxDistance={10} relic={<Pitcher />}/>
-          }
-        />
-
-        <Route
-          key={'car'}
-          path="/car"
-          element={
-            <RelicOne rotationLock={true} cameraPosition={[1.5,1.5,1.5]} minDistance={1.5} maxDistance={10} relic={<Car />}/>
-          }
-        />
-        <Route
-          key={'statue'}
-          path="/statue"
-          element={
-            <RelicOne rotationLock={true} cameraPosition={[1.5,1.5,1.5]} minDistance={1.5} maxDistance={10} relic={<Statue />}/>
+            <RelicOne rotationLock={false} cameraPosition={[50,50,50]} minDistance={10} maxDistance={50} relic={<LionRing />}/>
           }
         />
 
