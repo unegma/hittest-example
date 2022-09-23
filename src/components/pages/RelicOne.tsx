@@ -1,7 +1,8 @@
 // import {DefaultXRControllers, VRCanvas, useXR} from "@react-three/xr";
 import {Canvas} from "@react-three/fiber";
-import {Html, OrbitControls, PerspectiveCamera} from "@react-three/drei";
+import {Environment, Html, OrbitControls, PerspectiveCamera} from "@react-three/drei";
 import React, {Suspense, useState} from "react";
+import { Sky } from "@react-three/drei";
 const initialHelperText = '⚲ or ↺ Model';
 
 export default function RelicOne({relic, cameraPosition, minDistance, maxDistance, rotationLock, minPolarAngle = 1.5, maxPolarAngle = 1.5}: any) {
@@ -21,7 +22,7 @@ export default function RelicOne({relic, cameraPosition, minDistance, maxDistanc
         <p className='helperText' onClick={() => {showHelperTextMessage()}}>{helperText}</p>
       </div>
 
-      <Canvas>
+      <Canvas linear>
         {/*lock zoom to keep dolls house view. Can use minPolarAngle={Math.PI/2.1} maxPolarAngle={Math.PI/2.1} to lock rotation */}
         {/*<OrbitControls enableZoom={true} enablePan={false} minZoom={Math.PI/2} maxZoom={Math.PI/3} />*/}
 
@@ -33,8 +34,17 @@ export default function RelicOne({relic, cameraPosition, minDistance, maxDistanc
           <OrbitControls enableZoom={true} enablePan={false} minDistance={minDistance} maxDistance={maxDistance} minPolarAngle={minPolarAngle} maxPolarAngle={maxPolarAngle} />
         )}
 
-        <ambientLight/>
-        <pointLight intensity={1} position={[0, 0, 0]}/>
+        <Sky
+          distance={450000}
+          sunPosition={[5, 1, 8]}
+          inclination={0}
+          azimuth={0.25}
+        />
+
+        <Environment preset='city'/>
+
+        {/*<ambientLight/>*/}
+        {/*<pointLight intensity={1} position={[0, 0, 0]}/>*/}
         <PerspectiveCamera position={cameraPosition} makeDefault/>
 
         <Suspense fallback={<Html className="white">loading 3d view..</Html>}>

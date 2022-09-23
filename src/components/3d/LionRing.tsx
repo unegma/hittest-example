@@ -12,7 +12,9 @@ type GLTFResult = GLTF & {
   nodes: {
     lion_ring: THREE.Mesh
   }
-  materials: {}
+  materials: {
+    ['Material.001']: THREE.MeshStandardMaterial
+  }
 }
 
 export default function LionRing({ ...props }: JSX.IntrinsicElements['group']) {
@@ -20,7 +22,7 @@ export default function LionRing({ ...props }: JSX.IntrinsicElements['group']) {
   const { nodes, materials } = useGLTF(ITEM_URI, 'https://www.gstatic.com/draco/versioned/decoders/1.4.1/') as GLTFResult
   return (
     <group ref={group} {...props} dispose={null}>
-      <mesh castShadow receiveShadow geometry={nodes.lion_ring.geometry} material={nodes.lion_ring.material} />
+      <mesh castShadow receiveShadow geometry={nodes.lion_ring.geometry} material={materials['Material.001']} />
     </group>
   )
 }
