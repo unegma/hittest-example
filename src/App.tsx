@@ -97,7 +97,7 @@ function App() {
           key={'lion-ring'}
           path="/lion-ring"
           element={
-            <RelicOne rotationLock={false} cameraPosition={[-10,10,-10]} xrScaleOffset={10} minDistance={1} maxDistance={10} relic={
+            <RelicOne rotationLock={false} cameraPosition={[-10,10,-10]} xrScaleOffset={10} minDistance={5} maxDistance={10} relic={
               <LionRing scale={0.2} xrScaleOffset={10} />
             }/>
           }
