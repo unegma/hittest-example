@@ -22,7 +22,9 @@ export default function RelicOne({relic, cameraPosition, minDistance, maxDistanc
         <p className='helperText' onClick={() => {showHelperTextMessage()}}>{helperText}</p>
       </div>
 
-      <Canvas linear>
+      <Canvas
+        linear
+      >
         {/*lock zoom to keep dolls house view. Can use minPolarAngle={Math.PI/2.1} maxPolarAngle={Math.PI/2.1} to lock rotation */}
         {/*<OrbitControls enableZoom={true} enablePan={false} minZoom={Math.PI/2} maxZoom={Math.PI/3} />*/}
 
