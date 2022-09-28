@@ -6,25 +6,25 @@ import reportWebVitals from './reportWebVitals';
 import {
   BrowserRouter as Router,
 } from "react-router-dom";
-import { Web3ReactProvider } from '@web3-react/core';
-import { Web3Provider } from '@ethersproject/providers';
-
-function getLibrary(provider: any): Web3Provider {
-  const library = new Web3Provider(provider);
-  library.pollingInterval = 12000;
-  return library;
-}
+// import { Web3ReactProvider } from '@web3-react/core';
+// import { Web3Provider } from '@ethersproject/providers';
+//
+// function getLibrary(provider: any): Web3Provider {
+//   const library = new Web3Provider(provider);
+//   library.pollingInterval = 12000;
+//   return library;
+// }
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <Web3ReactProvider getLibrary={getLibrary}>
+    {/*<Web3ReactProvider getLibrary={getLibrary}>*/}
       <Router>
         <App />
       </Router>
-    </Web3ReactProvider>
+    {/*</Web3ReactProvider>*/}
   </React.StrictMode>
 );
 

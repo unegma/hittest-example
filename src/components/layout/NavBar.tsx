@@ -4,7 +4,7 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-import Web3ConnectionButtons from './Web3ConnectionButtons';
+// import Web3ConnectionButtons from './Web3ConnectionButtons';
 
 export default function NavBar(
   {toggleLeftSideDrawer, setShowBookingModal, showBookingModal}:
@@ -17,7 +17,7 @@ export default function NavBar(
             {process.env.REACT_APP_NAV_TITLE}
           </Typography>
           {/*<Button color="error" variant="contained" onClick={() => {setShowBookingModal(!showBookingModal)}}>Book Boardroom</Button>*/}
-          <Web3ConnectionButtons className='connect-button' />
+          {/*<Web3ConnectionButtons className='connect-button' />*/}
         </Toolbar>
       </AppBar>
     </Box>

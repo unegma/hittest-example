@@ -9,7 +9,7 @@ import ListItemText from '@mui/material/ListItemText';
 import {Link} from "react-router-dom";
 import Typography from "@mui/material/Typography";
 import {ChevronLeft, ChevronRight, InfoOutlined} from "@mui/icons-material";
-import BuyButton from "./BuyButton";
+// import BuyButton from "./BuyButton";
 
 export default function RightSideDrawer(
   {infoOpen, toggleRightSideDrawer, setDrawerRightOpen, drawerRightOpen, infoTitle = 'The Title', infoText = 'This is info about this piece'}: any) {
@@ -69,9 +69,9 @@ export default function RightSideDrawer(
             <Typography className="rightDrawer-text-container__description">
               {infoText}
             </Typography>
-            <Typography className="rightDrawer-text-container__buy-button">
-              <BuyButton />
-            </Typography>
+            {/*<Typography className="rightDrawer-text-container__buy-button">*/}
+            {/*  <BuyButton />*/}
+            {/*</Typography>*/}
           </div>
 
         </Box>
