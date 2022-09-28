@@ -3,7 +3,7 @@ import React, {useEffect, useRef, useState} from 'react'
 import {useXR} from "@react-three/xr";
 import {Html, PerspectiveCamera} from "@react-three/drei";
 
-export default function WrappedCamera({ cameraPosition }: any) {
+export default function WrappedCamera({ cameraPosition, xrZoom = 100 }: any) {
 
   const {
     // An array of connected `XRController`
@@ -29,7 +29,7 @@ export default function WrappedCamera({ cameraPosition }: any) {
     console.log(`Camera Position: ${cameraPosition}`);
     console.log(`_Camera Position: ${cameraPosition}`);
     if (isPresenting) {
-      setCameraPositionLocal([cameraPosition[0]+20, cameraPosition[1]+20, cameraPosition[2]+20]);
+      setCameraPositionLocal([cameraPosition[0]+xrZoom, cameraPosition[1]+xrZoom, cameraPosition[2]+xrZoom]);
     } else {
       setCameraPositionLocal(cameraPosition);
     }
@@ -37,7 +37,7 @@ export default function WrappedCamera({ cameraPosition }: any) {
 
   return (
     <>
-      <Html as='div'><h1>{cameraPositionLocal}</h1></Html>
+      {/*<Html as='div'><h1>{cameraPositionLocal}</h1></Html>*/}
       <PerspectiveCamera position={cameraPositionLocal} makeDefault/>
     </>
   )

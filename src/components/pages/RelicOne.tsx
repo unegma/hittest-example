@@ -8,7 +8,7 @@ import WrappedCamera from "../3d/WrappedCamera";
 import WrappedSky from "../3d/WrappedSky";
 const initialHelperText = '⚲ or ↺ Model';
 
-export default function RelicOne({relic, cameraPosition, minDistance, maxDistance, rotationLock, minPolarAngle = 1.5, maxPolarAngle = 1.5}: any) {
+export default function RelicOne({relic, cameraPosition, minDistance, maxDistance, rotationLock, minPolarAngle = 1.5, maxPolarAngle = 1.5, xrZoom = 100}: any) {
   const [helperText, setHelperText] = useState(initialHelperText);
 
   const showHelperTextMessage = () => {
@@ -66,7 +66,7 @@ export default function RelicOne({relic, cameraPosition, minDistance, maxDistanc
           {/*<ambientLight/>*/}
           {/*<pointLight intensity={1} position={[0, 0, 0]}/>*/}
 
-          <WrappedCamera cameraPosition={cameraPosition}></WrappedCamera>
+          <WrappedCamera xrZoom={xrZoom} cameraPosition={cameraPosition}></WrappedCamera>
 
           <Suspense fallback={<Html className="white">loading 3d view..</Html>}>
             <RayGrab>
