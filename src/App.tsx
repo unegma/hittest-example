@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {
   Route, Routes
 } from "react-router-dom";
-import './App.css';
+import './App.scss';
 import NavBar from "./components/layout/NavBar";
 import {CameraAltOutlined, ChevronLeft, ChevronRight, InfoOutlined, Menu} from "@mui/icons-material";
 import PhotoViewer from "./components/layout/PhotoViewer";

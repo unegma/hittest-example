@@ -58,12 +58,13 @@ export default function RelicOne({relic, cameraPosition, minDistance, maxDistanc
             <OrbitControls enableZoom={true} enablePan={false} minDistance={minDistance} maxDistance={maxDistance} minPolarAngle={minPolarAngle} maxPolarAngle={maxPolarAngle} />
           )}
 
-          <Sky
-            distance={450000}
-            sunPosition={[5, 1, 8]}
-            inclination={0}
-            azimuth={0.25}
-          />
+          {/*todo try to use only when not in xr*/}
+          {/*<Sky*/}
+          {/*  distance={450000}*/}
+          {/*  sunPosition={[5, 1, 8]}*/}
+          {/*  inclination={0}*/}
+          {/*  azimuth={0.25}*/}
+          {/*/>*/}
 
           <Environment preset='city'/>
 
