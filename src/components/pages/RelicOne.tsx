@@ -38,7 +38,7 @@ export default function RelicOne({relic, cameraPosition, minDistance, maxDistanc
         exitOnly={false}
       >
         {/* Can accept regular DOM children and has an optional callback with the XR button status (unsupported, exited, entered) */}
-        VIEW IN AR
+        AR View
       </XRButton>
 
       <Canvas linear >
