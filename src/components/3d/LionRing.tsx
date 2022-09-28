@@ -34,7 +34,7 @@ export default function LionRing({ scale, xrScaleOffset = 10, ...props }: any) {
   useEffect(() => {
     console.log(`Is Presenting is: ${isPresenting}`);
     if (isPresenting) {
-      setLocalScale(scale/xrScaleOffset);
+      setLocalScale([scale[0]/xrScaleOffset, scale[1]/xrScaleOffset, scale[2]/xrScaleOffset]);
     } else {
       setLocalScale(scale)
     }
