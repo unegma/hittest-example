@@ -1,9 +1,11 @@
 // import {DefaultXRControllers, VRCanvas, useXR} from "@react-three/xr";
 import {Canvas} from "@react-three/fiber";
 import {Environment, Html, OrbitControls, PerspectiveCamera} from "@react-three/drei";
-import React, {Suspense, useState} from "react";
+import React, {Suspense, useEffect, useState} from "react";
 import { Sky } from "@react-three/drei";
-import {Controllers, Hands, XR, XRButton} from "@react-three/xr";
+import {Controllers, Hands, RayGrab, useXR, XR, XRButton} from "@react-three/xr";
+import WrappedCamera from "../3d/WrappedCamera";
+import WrappedSky from "../3d/WrappedSky";
 const initialHelperText = '⚲ or ↺ Model';
 
 export default function RelicOne({relic, cameraPosition, minDistance, maxDistance, rotationLock, minPolarAngle = 1.5, maxPolarAngle = 1.5}: any) {
@@ -16,7 +18,6 @@ export default function RelicOne({relic, cameraPosition, minDistance, maxDistanc
 
     alert(helperTextAlertMessage);
   };
- 
   return (
     <>
       <div className={`buttons-container buttons-container--left-helper`}>
@@ -58,22 +59,19 @@ export default function RelicOne({relic, cameraPosition, minDistance, maxDistanc
             <OrbitControls enableZoom={true} enablePan={false} minDistance={minDistance} maxDistance={maxDistance} minPolarAngle={minPolarAngle} maxPolarAngle={maxPolarAngle} />
           )}
 
-          {/*todo try to use only when not in xr*/}
-          {/*<Sky*/}
-          {/*  distance={450000}*/}
-          {/*  sunPosition={[5, 1, 8]}*/}
-          {/*  inclination={0}*/}
-          {/*  azimuth={0.25}*/}
-          {/*/>*/}
+          <WrappedSky />
 
           <Environment preset='city'/>
 
           {/*<ambientLight/>*/}
           {/*<pointLight intensity={1} position={[0, 0, 0]}/>*/}
-          <PerspectiveCamera position={cameraPosition} makeDefault/>
+
+          <WrappedCamera cameraPosition={cameraPosition}></WrappedCamera>
 
           <Suspense fallback={<Html className="white">loading 3d view..</Html>}>
-            {relic}
+            <RayGrab>
+              {relic}
+            </RayGrab>
           </Suspense>
 
         </XR>
