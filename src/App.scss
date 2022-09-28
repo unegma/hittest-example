@@ -319,36 +319,36 @@ canvas {
 
 .xr-button {
   position: absolute;
-  bottom: 20px;
-  padding: 12px 6px;
+  bottom: 40px;
+  padding: 12px 16px;
   border: 1px solid rgb(255, 255, 255);
   border-radius: 4px;
   background: rgba(0, 0, 0, 0.1);
-  color: rgb(255, 255, 255);
+  //color: rgb(255, 255, 255);
   font: 13px sans-serif;
   text-align: center;
   opacity: 0.5;
   outline: none;
   z-index: 999;
   cursor: auto;
-  left: calc(50% - 75px);
-  width: 150px;
+  left: calc(50% - 50px);
+  //width: 150px;
 
   @media screen and (min-width: 768px) {
     position: absolute;
     bottom: 20px;
-    padding: 12px 6px;
+    padding: 12px 16px;
     border: 1px solid rgb(255, 255, 255);
     border-radius: 4px;
     background: rgba(0, 0, 0, 0.1);
-    color: rgb(255, 255, 255);
+    //color: rgb(255, 255, 255);
     font: 13px sans-serif;
     text-align: center;
     opacity: 0.5;
     outline: none;
     z-index: 999;
     cursor: auto;
-    left: calc(50% - 75px);
-    width: 150px;
+    left: calc(50% - 50px);
+    //width: 150px;
   }
 }
