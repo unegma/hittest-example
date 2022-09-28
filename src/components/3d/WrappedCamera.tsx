@@ -1,7 +1,7 @@
 import * as THREE from 'three'
 import React, {useEffect, useRef, useState} from 'react'
 import {useXR} from "@react-three/xr";
-import {PerspectiveCamera} from "@react-three/drei";
+import {Html, PerspectiveCamera} from "@react-three/drei";
 
 export default function WrappedCamera({ cameraPosition }: any) {
 
@@ -36,6 +36,9 @@ export default function WrappedCamera({ cameraPosition }: any) {
   }, [isPresenting])
 
   return (
-    <PerspectiveCamera position={cameraPositionLocal} makeDefault/>
+    <>
+      <Html as='div'><h1>{cameraPositionLocal}</h1></Html>
+      <PerspectiveCamera position={cameraPositionLocal} makeDefault/>
+    </>
   )
 }
