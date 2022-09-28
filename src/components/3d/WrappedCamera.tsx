@@ -22,20 +22,20 @@ export default function WrappedCamera({ cameraPosition }: any) {
     referenceSpace
   } = useXR();
 
-  const [_cameraPosition, setCameraPosition] = useState(cameraPosition);
+  const [cameraPositionLocal, setCameraPositionLocal] = useState(cameraPosition);
 
   useEffect(() => {
     console.log(`Is Presenting is: ${isPresenting}`);
     console.log(`Camera Position: ${cameraPosition}`);
     console.log(`_Camera Position: ${cameraPosition}`);
     if (isPresenting) {
-      setCameraPosition([cameraPosition[0]+10, cameraPosition[1]+10, cameraPosition[2]+10]);
+      setCameraPositionLocal([cameraPosition[0]+20, cameraPosition[1]+20, cameraPosition[2]+20]);
     } else {
-      setCameraPosition(cameraPosition);
+      setCameraPositionLocal(cameraPosition);
     }
   }, [isPresenting])
 
   return (
-    <PerspectiveCamera position={_cameraPosition} makeDefault/>
+    <PerspectiveCamera position={cameraPositionLocal} makeDefault/>
   )
 }

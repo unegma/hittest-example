@@ -34,11 +34,15 @@ export default function WrappedSky() {
   }, [isPresenting])
 
   return (
-    <Sky
-      distance={450000}
-      sunPosition={[5, 1, 8]}
-      inclination={0}
-      azimuth={0.25}
-    />
+    <>
+      { showSky && (
+        <Sky
+          distance={450000}
+          sunPosition={[5, 1, 8]}
+          inclination={0}
+          azimuth={0.25}
+        />
+      )}
+    </>
   )
 }
