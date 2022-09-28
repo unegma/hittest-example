@@ -26,7 +26,7 @@ export default function WrappedSky() {
 
   useEffect(() => {
     console.log(`Is Presenting is: ${isPresenting}`);
-    if (isPresenting) {
+    if (!isPresenting) {
       setShowSky(true);
     } else {
       setShowSky(false)
