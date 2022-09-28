@@ -28,7 +28,7 @@ export default function WrappedCamera({ cameraPosition }: any) {
     console.log(`Is Presenting is: ${isPresenting}`);
     console.log(`Camera Position: ${cameraPosition}`);
     console.log(`_Camera Position: ${cameraPosition}`);
-    if (!isPresenting) {
+    if (isPresenting) {
       setCameraPositionLocal([cameraPosition[0]+20, cameraPosition[1]+20, cameraPosition[2]+20]);
     } else {
       setCameraPositionLocal(cameraPosition);
