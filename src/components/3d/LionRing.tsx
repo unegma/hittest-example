@@ -26,7 +26,7 @@ export default function LionRing({ ...props }: JSX.IntrinsicElements['group']) {
 
   return (
     <group ref={group} {...props} dispose={null}>
-      <mesh castShadow receiveShadow geometry={nodes.lion_ring.geometry} >
+      <mesh castShadow receiveShadow geometry={nodes.lion_ring.geometry} scale={0.2}>
         <meshStandardMaterial color="goldenrod" metalness={0.9} roughness={0.1} stencilWrite={true} shadowSide={THREE.DoubleSide} />
       </mesh>
     </group>
