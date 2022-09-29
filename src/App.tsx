@@ -109,7 +109,7 @@ function App() {
           path="/necklace"
           element={
             <RelicOne rotationLock={false} cameraPosition={[-10,10,-10]} minDistance={5} maxDistance={10} relic={
-              <Necklace scale={1} xrScaleOffset={5} />
+              <Necklace scale={1} xrScaleOffset={2} />
             }/>
           }
         />
