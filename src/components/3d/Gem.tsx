@@ -43,7 +43,7 @@ export default function Gem({ scale, xrScaleOffset = 10, ...props }: any) {
   return (
     <group ref={group} {...props} dispose={null} scale={localScale}>
       <mesh castShadow receiveShadow geometry={nodes.gem.geometry} material={materials.gem}>
-        <meshStandardMaterial color="green" transparent={true} opacity={0.8} metalness={0.9} roughness={0.1} stencilWrite={true} shadowSide={THREE.DoubleSide} />
+        <meshStandardMaterial color="green" transparent={true} opacity={0.8} metalness={0.9} roughness={0} stencilWrite={true} shadowSide={THREE.DoubleSide} />
       </mesh>
     </group>
   )
