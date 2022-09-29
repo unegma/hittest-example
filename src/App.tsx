@@ -98,7 +98,7 @@ function App() {
           key={'lion-ring'}
           path="/lion-ring"
           element={
-            <RelicOne rotationLock={false} cameraPosition={[-10,10,-10]} xrScaleOffset={10} minDistance={5} maxDistance={10} relic={
+            <RelicOne rotationLock={false} cameraPosition={[-10,10,-10]} minDistance={5} maxDistance={10} relic={
               <LionRing scale={0.2} xrScaleOffset={10} />
             }/>
           }
@@ -108,8 +108,8 @@ function App() {
           key={'necklace'}
           path="/necklace"
           element={
-            <RelicOne rotationLock={false} cameraPosition={[-10,10,-10]} xrScaleOffset={10} minDistance={5} maxDistance={10} relic={
-              <Necklace scale={1} xrScaleOffset={10} />
+            <RelicOne rotationLock={false} cameraPosition={[-10,10,-10]} minDistance={5} maxDistance={10} relic={
+              <Necklace scale={1} xrScaleOffset={20} />
             }/>
           }
         />
