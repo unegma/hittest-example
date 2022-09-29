@@ -13,6 +13,7 @@ import DashboardScreen from "./components/pages/DashboardScreen";
 import RelicOne from "./components/pages/RelicOne";
 import RightSideDrawer from "./components/layout/RightSideDrawer";
 import LionRing from "./components/3d/LionRing";
+import Necklace from "./components/3d/Necklace";
 // import BookingModal from "./components/BookingModal";
 
 function App() {
@@ -99,6 +100,16 @@ function App() {
           element={
             <RelicOne rotationLock={false} cameraPosition={[-10,10,-10]} xrScaleOffset={10} minDistance={5} maxDistance={10} relic={
               <LionRing scale={0.2} xrScaleOffset={10} />
+            }/>
+          }
+        />
+
+        <Route
+          key={'necklace'}
+          path="/necklace"
+          element={
+            <RelicOne rotationLock={false} cameraPosition={[-10,10,-10]} xrScaleOffset={10} minDistance={5} maxDistance={10} relic={
+              <Necklace scale={0.2} xrScaleOffset={10} />
             }/>
           }
         />

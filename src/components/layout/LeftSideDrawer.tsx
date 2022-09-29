@@ -24,6 +24,12 @@ export default function LeftSideDrawer(
         name: "Lion Ring",
         infoTitle: "This is a Lion Ring",
         infoText: "This is a description about a Lion Ring",
+      },
+      {
+        key: 'necklace',
+        name: "Necklace",
+        infoTitle: "This is a Necklace",
+        infoText: "This is a description about a Necklace",
       }
     ]
   };
