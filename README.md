@@ -1,3 +1,6 @@
+Title page image from here: https://unsplash.com/photos/P3pI6xzovu0
+Necklace from here: https://sketchfab.com/3d-models/jashin-necklace-028988c5cc7b49c0addeb93bf3a6ff0f
+
 # Usage
 
 ## Setup
