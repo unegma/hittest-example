@@ -3,19 +3,19 @@ import React, {useEffect, useRef, useState} from 'react'
 import { useGLTF } from '@react-three/drei'
 import { GLTF } from 'three-stdlib'
 import {useXR} from "@react-three/xr";
-const ITEM_URI = `${process.env.REACT_APP_ASSETS_URL}/diamond-transformed.glb`;
+const ITEM_URI = `${process.env.REACT_APP_ASSETS_URL}/gem-transformed.glb`;
 
 type GLTFResult = GLTF & {
   nodes: {
-    diamond: THREE.Mesh
+    gem: THREE.Mesh
   }
   materials: {
-    diamond: THREE.MeshStandardMaterial
+    gem: THREE.MeshStandardMaterial
   }
 }
 
 
-export default function Diamond({ scale, xrScaleOffset = 10, ...props }: any) {
+export default function Gem({ scale, xrScaleOffset = 10, ...props }: any) {
   const group = useRef<THREE.Group>(null)
   const { nodes, materials } = useGLTF(ITEM_URI, 'https://www.gstatic.com/draco/versioned/decoders/1.4.1/') as GLTFResult
 
@@ -42,8 +42,8 @@ export default function Diamond({ scale, xrScaleOffset = 10, ...props }: any) {
 
   return (
     <group ref={group} {...props} dispose={null} scale={localScale}>
-      <mesh castShadow receiveShadow geometry={nodes.diamond.geometry} material={materials.diamond}>
-        <meshStandardMaterial color="silver" metalness={0.9} roughness={0.1} stencilWrite={true} shadowSide={THREE.DoubleSide} />
+      <mesh castShadow receiveShadow geometry={nodes.gem.geometry} material={materials.gem}>
+        <meshStandardMaterial color="green" transparent={true} opacity={0.8} metalness={0.9} roughness={0.1} stencilWrite={true} shadowSide={THREE.DoubleSide} />
       </mesh>
     </group>
   )

@@ -14,7 +14,7 @@ import RelicOne from "./components/pages/RelicOne";
 import RightSideDrawer from "./components/layout/RightSideDrawer";
 import LionRing from "./components/3d/LionRing";
 import Necklace from "./components/3d/Necklace";
-import Diamond from "./components/3d/Diamond";
+import Gem from "./components/3d/Gem";
 // import BookingModal from "./components/BookingModal";
 
 function App() {
@@ -116,11 +116,11 @@ function App() {
         />
 
         <Route
-          key={'diamond'}
-          path="/diamond"
+          key={'gem'}
+          path="/gem"
           element={
             <RelicOne rotationLock={false} cameraPosition={[-10,10,-10]} minDistance={5} maxDistance={10} relic={
-              <Diamond scale={1} xrScaleOffset={15} />
+              <Gem scale={1} xrScaleOffset={15} />
             }/>
           }
         />

@@ -32,10 +32,10 @@ export default function LeftSideDrawer(
         infoText: "This is a description about a Necklace",
       },
       {
-        key: 'diamond',
-        name: "Diamond",
-        infoTitle: "This is a Diamond",
-        infoText: "This is a description about a Diamond",
+        key: 'gem',
+        name: "Gem",
+        infoTitle: "This is a Gem",
+        infoText: "This is a description about a Gem",
       }
     ]
   };
