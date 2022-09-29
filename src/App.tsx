@@ -15,6 +15,7 @@ import RightSideDrawer from "./components/layout/RightSideDrawer";
 import LionRing from "./components/3d/LionRing";
 import Necklace from "./components/3d/Necklace";
 import Gem from "./components/3d/Gem";
+import LionGemsRing from "./components/3d/LionGems";
 // import BookingModal from "./components/BookingModal";
 
 function App() {
@@ -121,6 +122,16 @@ function App() {
           element={
             <RelicOne rotationLock={false} cameraPosition={[-10,10,-10]} minDistance={5} maxDistance={10} relic={
               <Gem scale={1} xrScaleOffset={15} />
+            }/>
+          }
+        />
+
+        <Route
+          key={'lion-gems'}
+          path="/lion-gems"
+          element={
+            <RelicOne rotationLock={false} cameraPosition={[-10,10,-10]} minDistance={5} maxDistance={10} relic={
+              <LionGemsRing scale={1} xrScaleOffset={15} />
             }/>
           }
         />
