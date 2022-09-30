@@ -3,20 +3,23 @@ import React, {useEffect, useRef, useState} from 'react'
 import { useGLTF } from '@react-three/drei'
 import { GLTF } from 'three-stdlib'
 import {useXR} from "@react-three/xr";
-const ITEM_URI = `${process.env.REACT_APP_ASSETS_URL}/necklace-transformed.glb`;
+const ITEM_URI = `${process.env.REACT_APP_ASSETS_URL}/candle-transformed.glb`;
 
 type GLTFResult = GLTF & {
   nodes: {
-    Object_5: THREE.Mesh
-    Object_5001: THREE.Mesh
+    Candle: THREE.Mesh
+    Lid_1: THREE.Mesh
+    Lid_2: THREE.Mesh
   }
   materials: {
-    ['Material.001']: THREE.MeshStandardMaterial
+    Candle: THREE.MeshStandardMaterial
+    Lid1: THREE.MeshStandardMaterial
+    Lid2: THREE.MeshStandardMaterial
   }
 }
 
 
-export default function Necklace({ scale, xrScaleOffset = 10, ...props }: any) {
+export default function Candle({ scale, xrScaleOffset = 10, ...props }: any) {
   const group = useRef<THREE.Group>(null)
   const { nodes, materials } = useGLTF(ITEM_URI, 'https://www.gstatic.com/draco/versioned/decoders/1.4.1/') as GLTFResult
 
@@ -42,14 +45,11 @@ export default function Necklace({ scale, xrScaleOffset = 10, ...props }: any) {
   }, [isPresenting]);
 
   return (
-    <group ref={group} {...props} dispose={null}>
-      <group rotation={[-0.04, 0, 0]} scale={localScale}>
-        <mesh castShadow receiveShadow geometry={nodes.Object_5.geometry} material={materials['Material.001']}>
-          <meshStandardMaterial color="silver" metalness={0.9} roughness={0.1} stencilWrite={true} shadowSide={THREE.DoubleSide} />
-        </mesh>
-        <mesh castShadow receiveShadow geometry={nodes.Object_5001.geometry} material={materials['Material.001']}>
-          <meshStandardMaterial color="goldenrod" metalness={0.9} roughness={0.1} stencilWrite={true} shadowSide={THREE.DoubleSide} />
-        </mesh>
+    <group ref={group} {...props} dispose={null} scale={localScale}>
+      <mesh castShadow receiveShadow geometry={nodes.Candle.geometry} material={materials.Candle} position={[0, -0.06, 0]} />
+      <group position={[-1.06, -0.59, 0]}>
+        <mesh castShadow receiveShadow geometry={nodes.Lid_1.geometry} material={materials.Lid1} />
+        <mesh castShadow receiveShadow geometry={nodes.Lid_2.geometry} material={materials.Lid2} />
       </group>
     </group>
   )

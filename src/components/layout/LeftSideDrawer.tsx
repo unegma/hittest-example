@@ -20,28 +20,10 @@ export default function LeftSideDrawer(
     title: SUBMENU_TITLE,
     items: [
       {
-        key: 'lion-ring',
-        name: "Lion Ring",
-        infoTitle: "This is a Lion Ring",
-        infoText: "This is a description about a Lion Ring",
-      },
-      {
-        key: 'necklace',
-        name: "Necklace",
-        infoTitle: "This is a Necklace",
-        infoText: "This is a description about a Necklace",
-      },
-      {
-        key: 'gem',
-        name: "Gem",
-        infoTitle: "This is a Gem",
-        infoText: "This is a description about a Gem",
-      },
-      {
-        key: 'lion-gems',
-        name: "Lion Gems",
-        infoTitle: "This is a Lion Ring with Gem eyes",
-        infoText: "This is a description about a Ring with Gems",
+        key: 'candle',
+        name: "Candle",
+        infoTitle: "This is a Candle",
+        infoText: "This is a description about a Candle",
       }
     ]
   };

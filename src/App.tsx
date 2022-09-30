@@ -12,10 +12,7 @@ import HomeScreen from "./components/pages/HomeScreen";
 import DashboardScreen from "./components/pages/DashboardScreen";
 import RelicOne from "./components/pages/RelicOne";
 import RightSideDrawer from "./components/layout/RightSideDrawer";
-import LionRing from "./components/3d/LionRing";
-import Necklace from "./components/3d/Necklace";
-import Gem from "./components/3d/Gem";
-import LionGemsRing from "./components/3d/LionGems";
+import Candle from "./components/3d/Candle";
 // import BookingModal from "./components/BookingModal";
 
 function App() {
@@ -97,41 +94,11 @@ function App() {
         />
 
         <Route
-          key={'lion-ring'}
-          path="/lion-ring"
+          key={'candle'}
+          path="/candle"
           element={
             <RelicOne rotationLock={false} cameraPosition={[-10,10,-10]} minDistance={5} maxDistance={10} relic={
-              <LionRing scale={0.2} xrScaleOffset={10} />
-            }/>
-          }
-        />
-
-        <Route
-          key={'necklace'}
-          path="/necklace"
-          element={
-            <RelicOne rotationLock={false} cameraPosition={[-10,10,-10]} minDistance={5} maxDistance={10} relic={
-              <Necklace scale={1} xrScaleOffset={15} />
-            }/>
-          }
-        />
-
-        <Route
-          key={'gem'}
-          path="/gem"
-          element={
-            <RelicOne rotationLock={false} cameraPosition={[-10,10,-10]} minDistance={5} maxDistance={10} relic={
-              <Gem scale={1} xrScaleOffset={15} />
-            }/>
-          }
-        />
-
-        <Route
-          key={'lion-gems'}
-          path="/lion-gems"
-          element={
-            <RelicOne rotationLock={false} cameraPosition={[-10,10,-10]} minDistance={5} maxDistance={10} relic={
-              <LionGemsRing scale={1} xrScaleOffset={15} />
+              <Candle scale={0.2} xrScaleOffset={10} />
             }/>
           }
         />
