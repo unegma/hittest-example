@@ -58,12 +58,15 @@ export default function RelicOne({relic, cameraPosition, minDistance, maxDistanc
             <OrbitControls enableZoom={true} enablePan={false} minDistance={minDistance} maxDistance={maxDistance} minPolarAngle={minPolarAngle} maxPolarAngle={maxPolarAngle} />
           )}
 
-          <WrappedSky />
+          {/*<WrappedSky />*/}
 
-          <Environment preset='city'/>
+          <Environment preset='sunset'/>
 
-          {/*<ambientLight/>*/}
-          {/*<pointLight intensity={1} position={[0, 0, 0]}/>*/}
+          <ambientLight intensity={0.5}/>
+          <pointLight intensity={0.5} position={[10, 0, 0]}/>
+          <pointLight intensity={0.2} position={[-10, 0, 10]}/>
+          {/*<pointLight intensity={1} position={[-10, 0, 0]}/>*/}
+          {/*<pointLight intensity={1} position={[10, 0, 10]}/>*/}
 
           <PerspectiveCamera position={cameraPosition} makeDefault/>
 
