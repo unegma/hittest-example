@@ -1,10 +1,8 @@
 // import {DefaultXRControllers, VRCanvas, useXR} from "@react-three/xr";
 import {Canvas} from "@react-three/fiber";
 import {Environment, Html, OrbitControls, PerspectiveCamera} from "@react-three/drei";
-import React, {Suspense, useEffect, useState} from "react";
-import { Sky } from "@react-three/drei";
+import React, {Suspense, useState} from "react";
 import {Controllers, Hands, RayGrab, useXR, XR, XRButton} from "@react-three/xr";
-import WrappedSky from "../3d/WrappedSky";
 const initialHelperText = '⚲ or ↺ Model';
 
 export default function RelicOne({relic, cameraPosition, minDistance, maxDistance, rotationLock, minPolarAngle = 1.5, maxPolarAngle = 1.5}: any) {

@@ -3,6 +3,7 @@ import React, {useEffect, useRef, useState} from 'react'
 import { useGLTF } from '@react-three/drei'
 import { GLTF } from 'three-stdlib'
 import {useXR} from "@react-three/xr";
+import {ItemProps} from "../../types/ItemProps";
 const ITEM_URI = `${process.env.REACT_APP_ASSETS_URL}/candle-transformed.glb`;
 
 type GLTFResult = GLTF & {
@@ -19,7 +20,7 @@ type GLTFResult = GLTF & {
 }
 
 
-export default function Candle({ scale, xrScaleOffset = 10, ...props }: any) {
+export default function Candle({ scale = 1, position = [0,0,0], xrScaleOffset = 10, xrPositionOffset = [1,1,1] }: ItemProps) {
   const group = useRef<THREE.Group>(null)
   const { nodes, materials } = useGLTF(ITEM_URI, 'https://www.gstatic.com/draco/versioned/decoders/1.4.1/') as GLTFResult
 
@@ -31,21 +32,21 @@ export default function Candle({ scale, xrScaleOffset = 10, ...props }: any) {
   } = useXR();
 
   const [localScale, setLocalScale] = useState(scale);
+  const [localPosition, setLocalPosition] = useState(position);
 
   useEffect(() => {
     console.log(`Is Presenting is: ${isPresenting}`);
     if (isPresenting) {
-      console.log(scale)
-      // console.log(`Scale Offset: ${xrScaleOffset}`)
-      setLocalScale(scale/xrScaleOffset);
-      // console.log(localScale)
+      setLocalScale(scale*xrScaleOffset);
+      setLocalPosition(xrPositionOffset);
     } else {
       setLocalScale(scale)
+      setLocalPosition(position)
     }
   }, [isPresenting]);
 
   return (
-    <group ref={group} {...props} dispose={null} scale={localScale}>
+    <group ref={group} dispose={null} scale={localScale} position={localPosition}>
       <mesh castShadow receiveShadow geometry={nodes.Candle.geometry} material={materials.Candle} position={[0, -0.06, 0]} />
       <group position={[-1.06, -0.59, 0]}>
         <mesh castShadow receiveShadow geometry={nodes.Lid_1.geometry} material={materials.Lid1} />
