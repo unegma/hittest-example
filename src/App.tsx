@@ -98,7 +98,7 @@ function App() {
           path="/candle"
           element={
             <RelicOne rotationLock={false} cameraPosition={[3,3,-3]} minDistance={1} maxDistance={10} relic={
-              <Candle xrScaleOffset={1.8} />}
+              <Candle xrScaleOffset={2.5} />}
             />
           }
         />
