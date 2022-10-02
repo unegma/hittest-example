@@ -70,7 +70,7 @@ export default function RelicOne({relic, cameraPosition, minDistance, maxDistanc
 
           <PerspectiveCamera position={cameraPosition} makeDefault/>
 
-          <Suspense fallback={<Html className="white">loading 3d view..</Html>}>
+          <Suspense fallback={<Html>loading 3d view..</Html>}>
             <RayGrab>
               {relic}
             </RayGrab>
