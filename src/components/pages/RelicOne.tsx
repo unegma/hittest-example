@@ -5,7 +5,7 @@ import React, {Suspense, useState} from "react";
 import {Controllers, Hands, RayGrab, useXR, XR, XRButton} from "@react-three/xr";
 const initialHelperText = '⚲ or ↺ Model';
 
-export default function RelicOne({relic, cameraPosition, minDistance, maxDistance, rotationLock, minPolarAngle = 1.5, maxPolarAngle = 1.5}: any) {
+export default function RelicOne({relic, cameraPosition, minDistance, maxDistance, rotationLock, minPolarAngle = 1.5, maxPolarAngle = 1.5, debug}: any) {
   const [helperText, setHelperText] = useState(initialHelperText);
 
   const showHelperTextMessage = () => {
@@ -73,6 +73,10 @@ export default function RelicOne({relic, cameraPosition, minDistance, maxDistanc
               {relic}
             </RayGrab>
           </Suspense>
+
+          <Html className='debugInfo'>
+            {JSON.stringify(debug)}
+          </Html>
 
         </XR>
       </Canvas>

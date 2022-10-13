@@ -21,9 +21,9 @@ type GLTFResult = GLTF & {
 }
 
 
-export default function Candle({ scale = 1, position = [0,0,0], xrScaleOffset = 1, xrPositionOffset = [0,-5,-5] }: ItemProps) {
+export default function Candle({ scale = 1, position = [0,0,0], xrScaleOffset = 1, xrPositionOffset = [0,-5,-5], setDebug }: ItemProps) {
   // const group = useRef<MutableRefObject>(null)
-  const mesh = React.useRef<THREE.Mesh>(null!)
+  const group = React.useRef<THREE.Group>(null!)
   const { nodes, materials } = useGLTF(ITEM_URI, 'https://www.gstatic.com/draco/versioned/decoders/1.4.1/') as GLTFResult
 
   console.log('Test %cTest', 'color: goldenrod; font-size: 16px;')
@@ -49,15 +49,23 @@ export default function Candle({ scale = 1, position = [0,0,0], xrScaleOffset = 
 
   useHitTest((hitMatrix: THREE.Matrix4, hit: XRHitTestResult) => {
     // mesh.current.applyMatrix4(hitMatrix)
-    hitMatrix.decompose(mesh.current.position, mesh.current.quaternion, mesh.current.scale)
+    hitMatrix.decompose(group.current.position, group.current.quaternion, group.current.scale)
+
+    // @ts-ignore
+    setDebug({
+      hitMatrix: hitMatrix,
+      hit: hit,
+      localScale: localScale,
+      localPosition: localPosition
+    })
   })
 
   return (
-    <group dispose={null} scale={localScale} position={localPosition}>
-      <mesh ref={mesh}  castShadow receiveShadow geometry={nodes.Candle.geometry} material={materials.Candle} position={[0, -0.06, 0]} />
+    <group ref={group} dispose={null} scale={localScale} position={localPosition}>
+      <mesh castShadow receiveShadow geometry={nodes.Candle.geometry} material={materials.Candle} position={[0, -0.06, 0]} />
       <group position={[-1.06, -0.59, 0]}>
-        <mesh ref={mesh} castShadow receiveShadow geometry={nodes.Lid_1.geometry} material={materials.Lid1} />
-        <mesh ref={mesh} castShadow receiveShadow geometry={nodes.Lid_2.geometry} material={materials.Lid2} />
+        <mesh castShadow receiveShadow geometry={nodes.Lid_1.geometry} material={materials.Lid1} />
+        <mesh castShadow receiveShadow geometry={nodes.Lid_2.geometry} material={materials.Lid2} />
       </group>
     </group>
   )

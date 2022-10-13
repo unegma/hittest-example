@@ -5,4 +5,5 @@ export type ItemProps = {
   position?: Vector3,
   xrScaleOffset?: number,
   xrPositionOffset?: Vector3
+  setDebug?: Function
 }

@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {
   Route, Routes
 } from "react-router-dom";
@@ -16,6 +16,7 @@ import Candle from "./components/3d/Candle";
 // import BookingModal from "./components/BookingModal";
 
 function App() {
+  const [debug, setDebug] = useState({});
   const [showImages, setShowImages] = useState(false);
   const [showInfoModal, setShowInfoModal] = useState(false);
   const [showBookingModal, setShowBookingModal] = useState(false);
@@ -44,6 +45,10 @@ function App() {
       }
     setDrawerRightOpen(!drawerRightOpen);
   };
+
+  useEffect(() => {
+    console.log(debug);
+  }, [debug]);
 
   return (
     <div className="App">
@@ -97,8 +102,8 @@ function App() {
           key={'candle'}
           path="/candle"
           element={
-            <RelicOne rotationLock={false} cameraPosition={[3,3,-3]} minDistance={1} maxDistance={10} relic={
-              <Candle xrScaleOffset={2.5} />}
+            <RelicOne debug={debug} rotationLock={false} cameraPosition={[3,3,-3]} minDistance={1} maxDistance={10} relic={
+              <Candle xrScaleOffset={2.5} setDebug={setDebug} />}
             />
           }
         />
