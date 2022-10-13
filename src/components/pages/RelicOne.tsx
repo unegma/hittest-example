@@ -74,11 +74,11 @@ export default function RelicOne({relic, cameraPosition, minDistance, maxDistanc
             </RayGrab>
           </Suspense>
 
-          <Html className='debugInfo'>
-            {JSON.stringify(debug)}
-          </Html>
 
         </XR>
+        <Html className='debugInfo'>
+          {JSON.stringify(debug)}
+        </Html>
       </Canvas>
       </>
   )
