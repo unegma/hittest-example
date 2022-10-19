@@ -18,6 +18,11 @@
 .env.test.local
 .env.production.local
 
+# TODO rename .env.production.example to .env.production, and use your own variables
+# BE AWARE, THAT PRIVATE AND SECRET KEYS THAT ARE PUSHED TO A FRONT-END ONLY SITE ARE STILL PUBLICALLY AVAILABLE
+# FOR SECURITY REASONS, PRIVATE KEYS SHOULD BE FETCHED FROM A BACKEND SERVER
+.env.production
+
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
