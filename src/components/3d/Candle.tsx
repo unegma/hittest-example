@@ -52,12 +52,29 @@ export default function Candle({ scale = 1, position = [0,0,0], xrScaleOffset = 
     hitMatrix.decompose(group.current.position, group.current.quaternion, group.current.scale)
 
     // @ts-ignore
-    setDebug({
-      hitMatrix: hitMatrix,
-      hit: hit,
-      localScale: localScale,
-      localPosition: localPosition
-    })
+    // setDebug({
+    //   hitMatrix: hitMatrix,
+    //   hit: hit,
+    //   localScale: localScale,
+    //   localPosition: localPosition
+    // })
+
+    fetch(
+      `${process.env.REACT_APP_SLACK_MESSAGES_LOG}`,
+      {
+        method: "post", headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json, text/plain, */*"
+        },
+        body: JSON.stringify(
+          {
+            hitMatrix: hitMatrix,
+            hit: hit,
+            localScale: localScale,
+            localPosition: localPosition
+          }
+        )
+      });
   })
 
   return (
