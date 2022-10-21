@@ -29,7 +29,8 @@ export default function RelicOne({relic, cameraPosition, minDistance, maxDistanc
          * `XRSession` configuration options
          * @see https://immersive-web.github.io/webxr/#feature-dependencies
          */
-        sessionInit={{ optionalFeatures: ['local-floor', 'bounded-floor', 'hand-tracking', 'layers'] }}
+        // sessionInit={{ optionalFeatures: ['local-floor', 'bounded-floor', 'hand-tracking', 'layers'] }}
+        sessionInit={{ optionalFeatures: ['local-floor'] }}
         /** Whether this button should only enter an `XRSession`. Default is `false` */
         enterOnly={false}
         /** Whether this button should only exit an `XRSession`. Default is `false` */
@@ -41,7 +42,9 @@ export default function RelicOne({relic, cameraPosition, minDistance, maxDistanc
 
       <Canvas linear >
 
-        <XR>
+        <XR
+          referenceSpace="local-floor"
+        >
           <Controllers />
           <Hands />
 
