@@ -44,18 +44,6 @@ export default function Candle({ scale = 1, position = [0,0,0], xrScaleOffset = 
     } else {
       setLocalScale(scale)
       setLocalPosition(position)
-
-      fetch(
-        `${process.env.REACT_APP_MESSAGES_LOG}`,
-        {
-          method: "post", headers: {
-            "Content-Type": "application/json",
-            "Accept": "application/json, text/plain, */*"
-          },
-          body: JSON.stringify(
-            'test'
-          )
-        });
     }
   }, [isPresenting]);
 
@@ -72,20 +60,18 @@ export default function Candle({ scale = 1, position = [0,0,0], xrScaleOffset = 
     // })
 
     fetch(
-      `${process.env.REACT_APP_SLACK_MESSAGES_LOG}`,
+      `${process.env.REACT_APP_MESSAGES_LOG}`,
       {
         method: "post", headers: {
           "Content-Type": "application/json",
           "Accept": "application/json, text/plain, */*"
         },
-        body: JSON.stringify(
-          {
-            hitMatrix: hitMatrix,
-            hit: hit,
-            localScale: localScale,
-            localPosition: localPosition
-          }
-        )
+        body: JSON.stringify({
+          hitMatrix: hitMatrix,
+          hit: hit,
+          localScale: localScale,
+          localPosition: localPosition
+        })
       });
   })
 
