@@ -3,6 +3,7 @@ import './App.scss';
 import * as THREE from 'three'
 import { Canvas } from '@react-three/fiber'
 import { useHitTest, ARButton, XR } from '@react-three/xr'
+import {Environment} from "@react-three/drei";
 
 function App() {
 
@@ -28,7 +29,12 @@ function App() {
       <>
         <ARButton />
         <Canvas>
-          <XR>
+          <XR
+            referenceSpace="local-floor"
+          >
+            <Environment preset='sunset'/>
+            <ambientLight intensity={0.5}/>
+
             <HitTest />
           </XR>
         </Canvas>
