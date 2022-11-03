@@ -26,25 +26,23 @@ function App() {
   return (
     <div className="App">
 
-      <>
-        <ARButton
-          className='xr-button'
-          // sessionInit={{ optionalFeatures: ['local-floor'] }}
-          enterOnly={false}
-          exitOnly={false}
-        />
+      <ARButton
+        className='xr-button'
+        // sessionInit={{ optionalFeatures: ['local-floor'] }}
+        enterOnly={false}
+        exitOnly={false}
+      />
 
-        <Canvas linear>
-          <XR
-            // referenceSpace="local-floor"
-          >
-            <Environment preset='sunset'/>
-            <ambientLight intensity={0.5}/>
+      <Canvas linear>
+        <XR
+          // referenceSpace="local-floor"
+        >
+          <Environment preset='sunset'/>
+          <ambientLight intensity={0.5}/>
 
-            <HitTest />
-          </XR>
-        </Canvas>
-      </>
+          <HitTest />
+        </XR>
+      </Canvas>
 
     </div>
   );
