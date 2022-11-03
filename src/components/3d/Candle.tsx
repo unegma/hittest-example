@@ -3,8 +3,6 @@ import React, {MutableRefObject, useEffect, useRef, useState} from 'react'
 import { useGLTF } from '@react-three/drei'
 import { GLTF } from 'three-stdlib'
 import {useHitTest, useXR} from "@react-three/xr";
-import {ItemProps} from "../../types/ItemProps";
-import {Matrix4} from "@react-three/fiber";
 const ITEM_URI = `${process.env.REACT_APP_ASSETS_URL}/candle-transformed.glb`;
 
 type GLTFResult = GLTF & {
@@ -20,8 +18,7 @@ type GLTFResult = GLTF & {
   }
 }
 
-
-export default function Candle({ scale = 1, position = [0,0,0], xrScaleOffset = 1, xrPositionOffset = [0,-5,-5], setDebug }: ItemProps) {
+export default function Candle({ scale = 1, position = [0,0,0], xrScaleOffset = 1, xrPositionOffset = [0,-5,-5], setDebug }: any) {
   // const group = useRef<MutableRefObject>(null)
   const group = React.useRef<THREE.Group>(null!)
   const { nodes, materials } = useGLTF(ITEM_URI, 'https://www.gstatic.com/draco/versioned/decoders/1.4.1/') as GLTFResult
@@ -58,21 +55,6 @@ export default function Candle({ scale = 1, position = [0,0,0], xrScaleOffset = 
     //   localScale: localScale,
     //   localPosition: localPosition
     // })
-
-    fetch(
-      `${process.env.REACT_APP_MESSAGES_LOG}`,
-      {
-        method: "post", headers: {
-          "Content-Type": "application/json",
-          "Accept": "application/json, text/plain, */*"
-        },
-        body: JSON.stringify({
-          hitMatrix: hitMatrix,
-          hit: hit,
-          localScale: localScale,
-          localPosition: localPosition
-        })
-      });
   })
 
   return (

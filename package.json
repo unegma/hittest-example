@@ -20,7 +20,6 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "pull-original": "eval $(grep '^ORIGINAL_GITHUB' .env) && git pull $ORIGINAL_GITHUB main --allow-unrelated-histories",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "build-prod": "react-scripts build --prod",

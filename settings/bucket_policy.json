@@ -6,7 +6,7 @@
       "Effect": "Allow",
       "Principal": "*",
       "Action": "s3:GetObject",
-      "Resource": "arn:aws:s3:::sohohome.unegma.store/*",
+      "Resource": "arn:aws:s3:::hittest-example.unegma.store/*",
       "Condition": {
         "IpAddress": {
           "aws:SourceIp": [
