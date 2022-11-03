@@ -48,7 +48,7 @@ export default function Candle({ scale = 1, position = [0,0,0], xrScaleOffset = 
   }, [isPresenting]);
 
   useHitTest((hitMatrix: THREE.Matrix4, hit: XRHitTestResult) => {
-    group.current.applyMatrix4(hitMatrix)
+    // group.current.applyMatrix4(hitMatrix)
     hitMatrix.decompose(group.current.position, group.current.quaternion, group.current.scale)
 
     // @ts-ignore
