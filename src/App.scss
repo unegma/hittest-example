@@ -18,8 +18,8 @@ html, body {
 }
 
 .xr-button {
-  position: absolute;
-  bottom: 120px;
+  position: fixed;
+  bottom: 20px;
   padding: 12px 16px;
   border: 1px solid rgb(255, 255, 255);
   border-radius: 4px;
@@ -35,7 +35,7 @@ html, body {
   //width: 150px;
 
   @media screen and (min-width: 768px) {
-    position: absolute;
+    position: fixed;
     bottom: 20px;
     padding: 12px 16px;
     border: 1px solid rgb(255, 255, 255);
