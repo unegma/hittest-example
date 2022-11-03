@@ -28,14 +28,14 @@ function App() {
 
       <ARButton
         className='xr-button'
-        // sessionInit={{ optionalFeatures: ['local-floor'] }}
+        sessionInit={{ optionalFeatures: ['local-floor'] }}
         enterOnly={false}
         exitOnly={false}
       />
 
       <Canvas linear>
         <XR
-          // referenceSpace="local-floor"
+          referenceSpace="local-floor"
         >
           <Environment preset='sunset'/>
           <ambientLight intensity={0.5}/>
