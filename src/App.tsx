@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import './App.scss';
 import * as THREE from 'three'
 import { Canvas } from '@react-three/fiber'
-import { useHitTest, ARButton, XR } from '@react-three/xr'
+import {useHitTest, ARButton, XR, XRButton} from '@react-three/xr'
 import {Environment} from "@react-three/drei";
 
 function App() {
@@ -27,8 +27,28 @@ function App() {
     <div className="App">
 
       <>
-        <ARButton />
-        <Canvas>
+        {/*<ARButton />*/}
+
+        <XRButton
+          className='xr-button'
+          /* The type of `XRSession` to create */
+          mode={'AR'}
+          /**
+           * `XRSession` configuration options
+           * @see https://immersive-web.github.io/webxr/#feature-dependencies
+           */
+          // sessionInit={{ optionalFeatures: ['local-floor', 'bounded-floor', 'hand-tracking', 'layers'] }}
+          sessionInit={{ optionalFeatures: ['local-floor'] }}
+          /** Whether this button should only enter an `XRSession`. Default is `false` */
+          enterOnly={false}
+          /** Whether this button should only exit an `XRSession`. Default is `false` */
+          exitOnly={false}
+        >
+          {/* Can accept regular DOM children and has an optional callback with the XR button status (unsupported, exited, entered) */}
+          AR View
+        </XRButton>
+
+        <Canvas linear>
           <XR
             referenceSpace="local-floor"
           >
