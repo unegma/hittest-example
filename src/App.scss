@@ -1,7 +1,7 @@
 html, body {
   background: white;
   width: 100vw;
-  height: 100vh;
+  height: 100%; /* Using 100% because 100vh on mobiles will not include the navbar*/
 }
 
 #root {
