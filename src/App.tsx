@@ -139,10 +139,6 @@ function Scene() {
       {/*<Plane ref={floorRef} args={[10, 10]} receiveShadow>*/}
       {/*  <meshStandardMaterial attach="material" color="#fff" />*/}
       {/*</Plane>*/}
-      <Hands />
-      <HandsReady>
-        <HandsColliders />
-      </HandsReady>
       {[...Array(7)].map((_, i) => (
         <Cube key={i} position={[0, 1.1 + 0.1 * i, -0.5]} />
       ))}
@@ -190,6 +186,8 @@ function App() {
       {/*<Canvas shadowMap>*/}
       <Canvas>
         <XR>
+          <Button position={[0, 0.1, -0.2]} />
+
           <Physics
             gravity={[0, -2, 0]}
             iterations={20}
@@ -197,6 +195,12 @@ function App() {
               friction: 0.09
             }}>
             <Scene />
+
+            <Hands />
+            <HandsReady>
+              <HandsColliders />
+            </HandsReady>
+            {/*    <Controllers />*/}
           </Physics>
         </XR>
       </Canvas>
