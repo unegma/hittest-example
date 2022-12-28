@@ -12,8 +12,8 @@ function App() {
 
     useHitTest((hitMatrix: THREE.Matrix4, hit: XRHitTestResult) => {
       // @ts-ignore
-      // hitMatrix.decompose(mesh.current.position, mesh.current.quaternion, mesh.current.scale)
-      hitMatrix.decompose(mesh.position, mesh.quaternion, mesh.scale)
+      hitMatrix.decompose(mesh.current.position, mesh.current.quaternion, mesh.current.scale)
+      // hitMatrix.decompose(mesh.position, mesh.quaternion, mesh.scale)
     })
 
 
