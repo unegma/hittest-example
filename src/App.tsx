@@ -136,9 +136,9 @@ function Scene() {
   return (
     <>
       {/*<Sky />*/}
-      <Plane ref={floorRef} args={[10, 10]} receiveShadow>
-        <meshStandardMaterial attach="material" color="#fff" />
-      </Plane>
+      {/*<Plane ref={floorRef} args={[10, 10]} receiveShadow>*/}
+      {/*  <meshStandardMaterial attach="material" color="#fff" />*/}
+      {/*</Plane>*/}
       <Hands />
       <HandsReady>
         <HandsColliders />
