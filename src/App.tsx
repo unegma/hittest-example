@@ -135,7 +135,7 @@ function Scene() {
   }))
   return (
     <>
-      <Sky />
+      {/*<Sky />*/}
       <Plane ref={floorRef} args={[10, 10]} receiveShadow>
         <meshStandardMaterial attach="material" color="#fff" />
       </Plane>
