@@ -6,6 +6,7 @@ import {Interactive, useHitTest, ARButton, XR, XRButton, Controllers, Hands} fro
 import {Environment, Text} from "@react-three/drei";
 import { Box as DreiBox, OrbitControls, Plane, Sphere, Sky, useMatcapTexture } from '@react-three/drei'
 import { usePlane, useBox, Physics, useSphere } from '@react-three/cannon'
+import AnimatedPerson from "./components/3d/AnimatedPerson";
 
 
 // begin example
@@ -142,6 +143,7 @@ function Scene() {
       {[...Array(7)].map((_, i) => (
         <Cube key={i} position={[0, 1.1 + 0.1 * i, -0.5]} />
       ))}
+      <AnimatedPerson />
       <OrbitControls />
       <ambientLight intensity={0.5} />
       <spotLight position={[1, 8, 1]} angle={0.3} penumbra={1} intensity={1} castShadow />
@@ -195,6 +197,7 @@ function App() {
               friction: 0.09
             }}>
             <Scene />
+
 
             <Hands />
             <HandsReady>
