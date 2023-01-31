@@ -7,7 +7,8 @@ import { Canvas } from "@react-three/fiber";
 // eslint-disable-next-line
 import { Matrix4, Mesh } from "three";
 
-export default function App () {
+
+const HitTestExample = () => {
   const ref = useRef(null!);
 
   let hitpoint = useRef()
@@ -18,13 +19,19 @@ export default function App () {
   });
 
   return (
+    <Box ref={hitpoint} args={[0.1, 0.1, 0.1]}/>
+  );
+};
+
+export default function App () {
+  return (
     <>
       <ARButton sessionInit={{ requiredFeatures: ["hit-test"] }}/>
       <Canvas>
         <XR>
           <ambientLight />
           <pointLight position={[10, 10, 10]} />
-          <Box ref={ref} args={[0.1, 0.1, 0.1]}/>
+          <HitTestExample />
           <Controllers />
         </XR>
       </Canvas>
