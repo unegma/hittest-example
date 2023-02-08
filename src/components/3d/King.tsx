@@ -33,16 +33,21 @@ export default function King({ scale = 0.01, position = [0,0,0], args = [0.5, 0.
 
   const [localScale, setLocalScale] = useState(scale);
   const [localPosition, setLocalPosition] = useState(position);
+
+  const [firedOnce, setFiredOnce] = useState(false); // stop the item 'sticking'?
+
   useEffect(() => {
     console.log(`Is Presenting is: ${isPresenting}`);
-    if (isPresenting) {
+    if (isPresenting && !firedOnce) {
       setLocalScale(scale*xrScaleOffset);
       setLocalPosition(xrPositionOffset);
+      setFiredOnce(true)
       // @ts-ignore
       // boxAPI.position.set(xrPositionOffset[0],xrPositionOffset[1],xrPositionOffset[2])
     } else {
       setLocalScale(scale)
       setLocalPosition(position)
+      setFiredOnce(true)
     }
   }, [isPresenting]);
 
