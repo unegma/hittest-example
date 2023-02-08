@@ -78,8 +78,8 @@ export default function King({ scale = 0.01, position = [0,0,0], args = [0, 0, 0
 
   return (
     // <DreiBox   castShadow>
-      <group ref={boxRef} args={args as any} dispose={null} >
-        <group ref={group} name="Armature" rotation={[Math.PI / 2, 0, 0]} scale={localScale}>
+      <group ref={boxRef} args={args as any} dispose={null} scale={localScale}>
+        <group ref={group} name="Armature" rotation={[Math.PI / 2, 0, 0]}>
           <primitive object={nodes.mixamorigHips}/>
           <skinnedMesh name="Body" geometry={nodes.Body.geometry} material={materials.Knight_MAT2}
                        skeleton={nodes.Body.skeleton}/>
