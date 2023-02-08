@@ -198,11 +198,13 @@ function App() {
           {/*<Button position={[0, 0.1, -0.2]} />*/}
 
           <Physics
-            gravity={[0, -2, 0]}
+            // todo find a better way to manage this
+            gravity={[0, -200, 0]}
             iterations={20}
             defaultContactMaterial={{
               friction: 0.09
-            }}>
+            }}
+          >
             <Scene />
 
 
