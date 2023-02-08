@@ -47,7 +47,7 @@ export default function King({ scale = 0.01, position = [0,0,0], args = [0, 0, 0
       setLocalScale(scale*xrScaleOffset);
 
 
-      // setLocalPosition(xrPositionOffset);
+      setLocalPosition(xrPositionOffset);
       boxRef.current.position.set(xrPositionOffset)
     }
   }, [isPresenting]);
