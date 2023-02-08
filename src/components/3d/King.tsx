@@ -72,7 +72,7 @@ export default function King({ scale = 1, position = [0,0,0], args = [0.5, 0.5, 
   });
 
   return (
-    <group ref={group} dispose={null} scale={localScale}>
+    <group ref={group} dispose={null} scale={localScale} position={localPosition}>
       <group name="Scene">
         <group name="Armature" rotation={[Math.PI / 2, 0, 0]} scale={0.01}>
           <primitive object={nodes.mixamorigHips}/>
