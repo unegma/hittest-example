@@ -7,6 +7,7 @@ import React, {useEffect, useRef, useState} from 'react'
 import {useGLTF, useAnimations} from '@react-three/drei'
 import {GLTF} from 'three-stdlib'
 import {useFrame} from "@react-three/fiber";
+import {useXR} from "@react-three/xr";
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -23,8 +24,28 @@ type GLTFResult = GLTF & {
 type ActionName = 'Armature|mixamo.com|Layer0'
 type GLTFActions = Record<ActionName, THREE.AnimationAction>
 
-export default function King({...props}: JSX.IntrinsicElements['group']) {
+export default function King({ scale = 1, position = [0,0,0], args = [0.5, 0.5, 0.5], xrScaleOffset = 0.5, xrPositionOffset = [0,-5,-5], setDebug }: any) {
   const ITEM_URI = `${process.env.REACT_APP_ASSETS_URL}/king-transformed.glb`;
+
+  const {
+    isPresenting
+  } = useXR();
+
+  const [localScale, setLocalScale] = useState(scale);
+  const [localPosition, setLocalPosition] = useState(position);
+  useEffect(() => {
+    console.log(`Is Presenting is: ${isPresenting}`);
+    if (isPresenting) {
+      setLocalScale(scale*xrScaleOffset);
+      setLocalPosition(xrPositionOffset);
+      // @ts-ignore
+      // boxAPI.position.set(xrPositionOffset[0],xrPositionOffset[1],xrPositionOffset[2])
+    } else {
+      setLocalScale(scale)
+      setLocalPosition(position)
+    }
+  }, [isPresenting]);
+
 
   const group = useRef<THREE.Group>(null!);
 
@@ -51,7 +72,7 @@ export default function King({...props}: JSX.IntrinsicElements['group']) {
   });
 
   return (
-    <group ref={group} {...props} dispose={null}>
+    <group ref={group} dispose={null} scale={localScale}>
       <group name="Scene">
         <group name="Armature" rotation={[Math.PI / 2, 0, 0]} scale={0.01}>
           <primitive object={nodes.mixamorigHips}/>
