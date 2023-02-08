@@ -48,8 +48,7 @@ export default function King({ scale = 0.01, position = [0,0,0], args = [0, 0, 0
 
 
       // setLocalPosition(xrPositionOffset);
-      // @ts-ignore
-      boxRef.position.set(xrPositionOffset[0],xrPositionOffset[1],xrPositionOffset[2])
+      boxRef.current.position.set(xrPositionOffset[0],xrPositionOffset[1],xrPositionOffset[2])
     }
   }, [isPresenting]);
 
