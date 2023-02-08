@@ -44,7 +44,7 @@ export default function King({ scale = 0.01, position = [0,0,0], args = [0.5, 0.
       setFiredOnce(true)
       // @ts-ignore
       // boxAPI.position.set(xrPositionOffset[0],xrPositionOffset[1],xrPositionOffset[2])
-    } else {
+    } else if (!firedOnce){
       setLocalScale(scale)
       setLocalPosition(position)
       setFiredOnce(true)

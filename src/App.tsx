@@ -148,7 +148,7 @@ function Scene() {
       {/*))}*/}
       {/*<AnimatedPerson />*/}
 
-      <Cube key={1} position={[0, 1.1 + 0.1 * 1, -0.5]} />
+      {/*<Cube key={1} position={[0, 1.1 + 0.1 * 1, -0.5]} />*/}
 
       <King />
       <OrbitControls />
