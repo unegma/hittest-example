@@ -25,7 +25,7 @@ type GLTFResult = GLTF & {
 type ActionName = 'Armature|mixamo.com|Layer0'
 type GLTFActions = Record<ActionName, THREE.AnimationAction>
 
-export default function King({ scale = 0.01, position = [0,0,0], args = [0.06, 0.06, 0.06], xrScaleOffset = 0.5, xrPositionOffset = [0,0,-5], setDebug }: any) {
+export default function King({ scale = 0.01, position = [0,0,0], args = [0.006, 0.006, 0.006], xrScaleOffset = 0.5, xrPositionOffset = [0,0,-5], setDebug }: any) {
   const ITEM_URI = `${process.env.REACT_APP_ASSETS_URL}/king-transformed.glb`;
 
   // const {
@@ -81,7 +81,7 @@ export default function King({ scale = 0.01, position = [0,0,0], args = [0.06, 0
   return (
     // <DreiBox   castShadow>
       <group ref={boxRef} args={args as any} dispose={null} >
-        <group ref={group} name="Armature" rotation={[Math.PI / 2, 0, 0]} scale={1}>
+        <group ref={group} name="Armature" rotation={[Math.PI / 2, 0, 0]} scale={0.01}>
           <primitive object={nodes.mixamorigHips}/>
           <skinnedMesh name="Body" geometry={nodes.Body.geometry} material={materials.Knight_MAT2}
                        skeleton={nodes.Body.skeleton}/>
