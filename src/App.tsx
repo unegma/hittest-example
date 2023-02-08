@@ -145,7 +145,7 @@ function Scene() {
       {/*  <Cube key={i} position={[0, 1.1 + 0.1 * i, -0.5]} />*/}
       {/*))}*/}
       {/*<AnimatedPerson />*/}
-      <King position={[]}/>
+      <King />
       <OrbitControls />
       <ambientLight intensity={0.5} />
       <spotLight position={[1, 8, 1]} angle={0.3} penumbra={1} intensity={1} castShadow />

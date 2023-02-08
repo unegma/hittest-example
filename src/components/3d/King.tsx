@@ -24,7 +24,7 @@ type GLTFResult = GLTF & {
 type ActionName = 'Armature|mixamo.com|Layer0'
 type GLTFActions = Record<ActionName, THREE.AnimationAction>
 
-export default function King({ scale = 1, position = [0,0,0], args = [0.5, 0.5, 0.5], xrScaleOffset = 0.5, xrPositionOffset = [0,-5,-5], setDebug }: any) {
+export default function King({ scale = 0.01, position = [0,0,0], args = [0.5, 0.5, 0.5], xrScaleOffset = 0.5, xrPositionOffset = [0,0,-5], setDebug }: any) {
   const ITEM_URI = `${process.env.REACT_APP_ASSETS_URL}/king-transformed.glb`;
 
   const {
@@ -57,10 +57,10 @@ export default function King({ scale = 1, position = [0,0,0], args = [0.5, 0.5, 
   } = useGLTF(ITEM_URI, 'https://www.gstatic.com/draco/versioned/decoders/1.4.1/') as GLTFResult
 
   // @ts-ignore
-  const {actions} = useAnimations<GLTFActions>(animations, group)
+  const {actions} = useAnimations<GLTFActions>(animations, group);
 
   // @ts-ignore
-  const [mixer] = useState(() => new THREE.AnimationMixer())
+  const [mixer] = useState(() => new THREE.AnimationMixer());
 
   useEffect(() => {
     // mixer.clipAction(animations[0], group.current).setDuration(1);
@@ -73,16 +73,14 @@ export default function King({ scale = 1, position = [0,0,0], args = [0.5, 0.5, 
 
   return (
     <group ref={group} dispose={null} scale={localScale} position={localPosition}>
-      <group name="Scene">
-        <group name="Armature" rotation={[Math.PI / 2, 0, 0]} scale={0.01}>
-          <primitive object={nodes.mixamorigHips}/>
-          <skinnedMesh name="Body" geometry={nodes.Body.geometry} material={materials.Knight_MAT2}
-                       skeleton={nodes.Body.skeleton}/>
-          <skinnedMesh name="Head_Hands" geometry={nodes.Head_Hands.geometry} material={materials.Knight_MAT2}
-                       skeleton={nodes.Head_Hands.skeleton}/>
-          <skinnedMesh name="Lower_Armor" geometry={nodes.Lower_Armor.geometry} material={materials.Knight_MAT2}
-                       skeleton={nodes.Lower_Armor.skeleton}/>
-        </group>
+      <group name="Armature" rotation={[Math.PI / 2, 0, 0]} scale={1}>
+        <primitive object={nodes.mixamorigHips}/>
+        <skinnedMesh name="Body" geometry={nodes.Body.geometry} material={materials.Knight_MAT2}
+                     skeleton={nodes.Body.skeleton}/>
+        <skinnedMesh name="Head_Hands" geometry={nodes.Head_Hands.geometry} material={materials.Knight_MAT2}
+                     skeleton={nodes.Head_Hands.skeleton}/>
+        <skinnedMesh name="Lower_Armor" geometry={nodes.Lower_Armor.geometry} material={materials.Knight_MAT2}
+                     skeleton={nodes.Lower_Armor.skeleton}/>
       </group>
     </group>
   )
