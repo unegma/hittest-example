@@ -24,7 +24,7 @@ type ActionName = 'Armature|mixamo.com|Layer0'
 type GLTFActions = Record<ActionName, THREE.AnimationAction>
 
 export default function King({...props}: JSX.IntrinsicElements['group']) {
-  const ITEM_URI = `${process.env.REACT_APP_ASSETS_URL}/king-transformed.glb'`;
+  const ITEM_URI = `${process.env.REACT_APP_ASSETS_URL}/king-transformed.glb`;
 
   const group = useRef<THREE.Group>(null!);
 

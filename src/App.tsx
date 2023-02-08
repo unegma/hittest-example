@@ -144,7 +144,7 @@ function Scene() {
       {/*{[...Array(7)].map((_, i) => (*/}
       {/*  <Cube key={i} position={[0, 1.1 + 0.1 * i, -0.5]} />*/}
       {/*))}*/}
-      <AnimatedPerson />
+      {/*<AnimatedPerson />*/}
       <King />
       <OrbitControls />
       <ambientLight intensity={0.5} />
