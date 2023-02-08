@@ -77,10 +77,12 @@ function Cube({ position, args = [0.06, 0.06, 0.06] }: any) {
   const [tex] = useMatcapTexture('C7C0AC_2E181B_543B30_6B6270')
 
   return (
-    <DreiBox ref={boxRef} args={args as any} castShadow>
-      <King />
-      <meshMatcapMaterial attach="material" matcap={tex as any} />
-    </DreiBox>
+    <>
+    {/*<DreiBox ref={boxRef} args={args as any} castShadow>*/}
+      <King ref={boxRef} args={args as any} castShadow />
+      {/*<meshMatcapMaterial attach="material" matcap={tex as any} />*/}
+    {/*</DreiBox>*/}
+    </>
   )
 }
 
