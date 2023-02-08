@@ -33,7 +33,7 @@ export default function King({ scale = 0.01, position = [0,0,0], args = [0, 0, 0
   } = useXR();
 
   const [localScale, setLocalScale] = useState(scale);
-  // const [localPosition, setLocalPosition] = useState(position);
+  const [localPosition, setLocalPosition] = useState(position);
 
   // const [firedOnce, setFiredOnce] = useState(false); // stop the item 'sticking'?
 
@@ -42,18 +42,20 @@ export default function King({ scale = 0.01, position = [0,0,0], args = [0, 0, 0
     if (!isPresenting) {
       setLocalScale(scale)
 
-      // setLocalPosition(xrPositionOffset);
-      // @ts-ignore
-      // boxAPI.position.set(xrPositionOffset[0],xrPositionOffset[1],xrPositionOffset[2])
+      // setLocalPosition(position)
     } else {
       setLocalScale(scale*xrScaleOffset);
-      // setLocalPosition(position)
+
+
+      setLocalPosition(xrPositionOffset);
+      // @ts-ignore
+      // boxAPI.position.set(xrPositionOffset[0],xrPositionOffset[1],xrPositionOffset[2])
     }
   }, [isPresenting]);
 
 
   const group = useRef<THREE.Group>(null!);
-  const [boxRef] = useBox<any>(() => ({ position, mass: 1, args }));
+  const [boxRef] = useBox<any>(() => ({ position, mass: 1, args })); // todo what is args?
 
   // @ts-ignore
   const {
@@ -79,7 +81,7 @@ export default function King({ scale = 0.01, position = [0,0,0], args = [0, 0, 0
 
   return (
     // <DreiBox   castShadow>
-      <group ref={boxRef} args={args as any} dispose={null} scale={localScale}>
+      <group ref={boxRef} args={args as any} dispose={null} scale={localScale} position={localPosition}>
         <group ref={group} name="Armature" rotation={[Math.PI / 2, 0, 0]}>
           <primitive object={nodes.mixamorigHips}/>
           <skinnedMesh name="Body" geometry={nodes.Body.geometry} material={materials.Knight_MAT2}
