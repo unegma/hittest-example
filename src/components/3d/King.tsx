@@ -25,32 +25,30 @@ type GLTFResult = GLTF & {
 type ActionName = 'Armature|mixamo.com|Layer0'
 type GLTFActions = Record<ActionName, THREE.AnimationAction>
 
-export default function King({ scale = 0.01, position = [0,0,0], args = [0.006, 0.006, 0.006], xrScaleOffset = 0.5, xrPositionOffset = [0,0,-5], setDebug }: any) {
+export default function King({ scale = 0.01, position = [0,0,0], args = [0, 0, 0], xrScaleOffset = 0.5, xrPositionOffset = [0,0,-5], setDebug }: any) {
   const ITEM_URI = `${process.env.REACT_APP_ASSETS_URL}/king-transformed.glb`;
 
-  // const {
-  //   isPresenting
-  // } = useXR();
+  const {
+    isPresenting
+  } = useXR();
 
-  // const [localScale, setLocalScale] = useState(scale);
+  const [localScale, setLocalScale] = useState(scale);
   // const [localPosition, setLocalPosition] = useState(position);
 
   // const [firedOnce, setFiredOnce] = useState(false); // stop the item 'sticking'?
 
-  // useEffect(() => {
-  //   console.log(`Is Presenting is: ${isPresenting}`);
-  //   if (isPresenting && !firedOnce) {
-  //     setLocalScale(scale*xrScaleOffset);
-  //     setLocalPosition(xrPositionOffset);
-  //     setFiredOnce(true)
-  //     // @ts-ignore
-  //     // boxAPI.position.set(xrPositionOffset[0],xrPositionOffset[1],xrPositionOffset[2])
-  //   } else if (!firedOnce){
-  //     setLocalScale(scale)
-  //     setLocalPosition(position)
-  //     setFiredOnce(true)
-  //   }
-  // }, [isPresenting]);
+  useEffect(() => {
+    console.log(`Is Presenting is: ${isPresenting}`);
+    if (isPresenting) {
+      setLocalScale(scale*xrScaleOffset);
+      // setLocalPosition(xrPositionOffset);
+      // @ts-ignore
+      // boxAPI.position.set(xrPositionOffset[0],xrPositionOffset[1],xrPositionOffset[2])
+    } else {
+      setLocalScale(scale)
+      // setLocalPosition(position)
+    }
+  }, [isPresenting]);
 
 
   const group = useRef<THREE.Group>(null!);
@@ -81,7 +79,7 @@ export default function King({ scale = 0.01, position = [0,0,0], args = [0.006, 
   return (
     // <DreiBox   castShadow>
       <group ref={boxRef} args={args as any} dispose={null} >
-        <group ref={group} name="Armature" rotation={[Math.PI / 2, 0, 0]} scale={0.01}>
+        <group ref={group} name="Armature" rotation={[Math.PI / 2, 0, 0]} scale={localScale}>
           <primitive object={nodes.mixamorigHips}/>
           <skinnedMesh name="Body" geometry={nodes.Body.geometry} material={materials.Knight_MAT2}
                        skeleton={nodes.Body.skeleton}/>
