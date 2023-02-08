@@ -78,6 +78,7 @@ function Cube({ position, args = [0.06, 0.06, 0.06] }: any) {
 
   return (
     <DreiBox ref={boxRef} args={args as any} castShadow>
+      <King />
       <meshMatcapMaterial attach="material" matcap={tex as any} />
     </DreiBox>
   )
@@ -135,6 +136,8 @@ function Scene() {
     position: [0, 1, 0],
     type: 'Static'
   }))
+
+
   return (
     <>
       {/*<Sky />*/}
@@ -148,7 +151,7 @@ function Scene() {
 
       <Cube key={1} position={[0, 1.1 + 0.1 * 1, -0.5]} />
 
-      <King />
+
       <OrbitControls />
       <ambientLight intensity={0.5} />
       <spotLight position={[1, 8, 1]} angle={0.3} penumbra={1} intensity={1} castShadow />
