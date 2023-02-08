@@ -25,7 +25,7 @@ type GLTFResult = GLTF & {
 type ActionName = 'Armature|mixamo.com|Layer0'
 type GLTFActions = Record<ActionName, THREE.AnimationAction>
 
-export default function King({ scale = 0.01, position = [0,0,0], args = [0, 0, 0], xrScaleOffset = 0.1, xrPositionOffset = [0,5,-5], setDebug }: any) {
+export default function King({ scale = 0.01, position = [0,0,0], args = [0, 0, 0], xrScaleOffset = 0.1, xrPositionOffset = [0,0,-5], setDebug }: any) {
   const ITEM_URI = `${process.env.REACT_APP_ASSETS_URL}/king-transformed.glb`;
 
   const {
@@ -47,9 +47,9 @@ export default function King({ scale = 0.01, position = [0,0,0], args = [0, 0, 0
       setLocalScale(scale*xrScaleOffset);
 
 
-      setLocalPosition(xrPositionOffset);
+      // setLocalPosition(xrPositionOffset);
       // @ts-ignore
-      // boxAPI.position.set(xrPositionOffset[0],xrPositionOffset[1],xrPositionOffset[2])
+      group.position.set(xrPositionOffset[0],xrPositionOffset[1],xrPositionOffset[2])
     }
   }, [isPresenting]);
 
