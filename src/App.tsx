@@ -150,7 +150,7 @@ function Scene() {
 
       {/*<Cube key={1} position={[0, 1.1 + 0.1 * 1, -0.5]} />*/}
 
-      <Html>Click King to Interact</Html>
+      <Html>Step back to see King in AR mode.<br/><br/>Click King to Interact</Html>
 
       <King />
       <OrbitControls />
