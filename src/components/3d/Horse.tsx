@@ -26,7 +26,7 @@ type GLTFResult = GLTF & {
 type ActionName = 'CINEMA_4D_Main'
 type GLTFActions = Record<ActionName, THREE.AnimationAction>
 
-export default function Horse({ scale = 0.01, position = [-150,0,-150], args = [0, 0, 0], xrScaleOffset = 0.1, xrPositionOffset = [0,5,-10], setDebug }: any) {
+export default function Horse({ scale = 0.01, position = [-150,0,-150], args = [0, 0, 0], xrScaleOffset = 0.1, xrPositionOffset = [-150,0,-150], setDebug }: any) {
   const ITEM_URI = `${process.env.REACT_APP_ASSETS_URL}/horse-transformed.glb`;
 
   const {

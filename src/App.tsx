@@ -151,7 +151,7 @@ function Scene() {
 
       {/*<Cube key={1} position={[0, 1.1 + 0.1 * 1, -0.5]} />*/}
 
-      <Html>Step back to see Objects AR mode.<br/><br/>Click Objects to Interact</Html>
+      <Html className="instructions-html">Click AR Button Below (on Android) to enter AR.<br/><br/>Step back to see Objects AR mode.<br/><br/>Click Objects to Interact</Html>
 
       <King />
       <Horse />

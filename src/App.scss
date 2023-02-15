@@ -52,3 +52,25 @@ html, body {
     //width: 150px;
   }
 }
+
+.instructions-html {
+  padding: 10px;
+  width: 300px;
+  background-color: white;
+  font-size: 12px;
+  //line-height: 90px;
+  //z-index:9999;
+  color: black;
+  position: fixed;
+  //top: 50%;
+  //left: 50%;
+  left: -150px;
+  bottom: -150px;
+  /* bring your own prefixes */
+  //transform: translate(-50%, -50%);
+
+  @media screen and (min-width: 768px) {
+    //font-size: 100px;
+    //line-height: 160px;
+  }
+}
