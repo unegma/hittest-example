@@ -8,6 +8,7 @@ import { Box as DreiBox, OrbitControls, Plane, Sphere, Sky, useMatcapTexture } f
 import { usePlane, useBox, Physics, useSphere } from '@react-three/cannon'
 import AnimatedPerson from "./components/3d/AnimatedPerson";
 import King from "./components/3d/King";
+import Horse from "./components/3d/Horse";
 
 
 // begin example
@@ -150,9 +151,10 @@ function Scene() {
 
       {/*<Cube key={1} position={[0, 1.1 + 0.1 * 1, -0.5]} />*/}
 
-      <Html>Step back to see King in AR mode.<br/><br/>Click King to Interact</Html>
+      <Html>Step back to see Objects AR mode.<br/><br/>Click Objects to Interact</Html>
 
       <King />
+      <Horse />
       <OrbitControls />
       <ambientLight intensity={0.5} />
       <spotLight position={[1, 8, 1]} angle={0.3} penumbra={1} intensity={1} castShadow />

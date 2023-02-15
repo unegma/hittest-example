@@ -47,7 +47,6 @@ export default function King({ scale = 0.01, position = [0,0,0], args = [0, 0, 0
     } else {
       setLocalScale(scale*xrScaleOffset);
 
-
       setLocalPosition(xrPositionOffset);
       boxRef.current.position.set(xrPositionOffset)
     }
@@ -64,17 +63,27 @@ export default function King({ scale = 0.01, position = [0,0,0], args = [0, 0, 0
     animations
   } = useGLTF(ITEM_URI, 'https://www.gstatic.com/draco/versioned/decoders/1.4.1/') as GLTFResult
 
+
+  const [playing, setPlaying] = useState(false);
+
+  const playAudio = () => {
+    console.log('here')
+    setPlaying(true);
+    let audio = new Audio(`${process.env.REACT_APP_ASSETS_URL}/richard-the-2nd-1.mp3`);
+    if (!playing) {
+      audio.play();
+    }
+    setTimeout(() => {
+      setPlaying(false);
+    }, 20000)
+  }
+
+
   // @ts-ignore
   const {actions} = useAnimations<GLTFActions>(animations, group);
 
   // @ts-ignore
   const [mixer] = useState(() => new THREE.AnimationMixer());
-
-  const playAudio = () => {
-    console.log('here')
-    let audio = new Audio(`${process.env.REACT_APP_ASSETS_URL}/Project_King.mp3`);
-    audio.play();
-  }
 
   useEffect(() => {
     // mixer.clipAction(animations[0], group.current).setDuration(1);
