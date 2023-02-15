@@ -3,7 +3,7 @@ import './App.scss';
 import * as THREE from 'three'
 import { useThree, useFrame, Canvas } from '@react-three/fiber'
 import {Interactive, useHitTest, ARButton, XR, XRButton, Controllers, Hands} from '@react-three/xr'
-import {Environment, Text} from "@react-three/drei";
+import {Environment, Html, Text} from "@react-three/drei";
 import { Box as DreiBox, OrbitControls, Plane, Sphere, Sky, useMatcapTexture } from '@react-three/drei'
 import { usePlane, useBox, Physics, useSphere } from '@react-three/cannon'
 import AnimatedPerson from "./components/3d/AnimatedPerson";
@@ -149,6 +149,8 @@ function Scene() {
       {/*<AnimatedPerson />*/}
 
       {/*<Cube key={1} position={[0, 1.1 + 0.1 * 1, -0.5]} />*/}
+
+      <Html>Click King to Interact</Html>
 
       <King />
       <OrbitControls />
