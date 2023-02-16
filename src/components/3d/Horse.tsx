@@ -26,7 +26,7 @@ type GLTFResult = GLTF & {
 type ActionName = 'CINEMA_4D_Main'
 type GLTFActions = Record<ActionName, THREE.AnimationAction>
 
-export default function Horse({ scale = 0.01, position = [-150,0,-150], args = [0, 0, 0], xrScaleOffset = 0.1, xrPositionOffset = [-150,0,-150], setDebug }: any) {
+export default function Horse({ scale = 0.01, position = [-150,0,-150], args = [0, 0, 0], xrScaleOffset = 1, xrPositionOffset = [-150,-50,-500], setDebug }: any) {
   const ITEM_URI = `${process.env.REACT_APP_ASSETS_URL}/horse-transformed.glb`;
 
   const {
@@ -91,12 +91,15 @@ export default function Horse({ scale = 0.01, position = [-150,0,-150], args = [
   return (
     <group ref={boxRef} args={args as any} dispose={null} scale={localScale} onClick={() => playAudio()}>
       {/*<mesh position={[0,80,50]} onClick={() => playAudio()} >*/}
-      <mesh position={[-150,100,-100]} onClick={() => playAudio()} >
-        <boxGeometry args={[100, 250, 250]} />
-        <meshPhongMaterial color="#ff0000" opacity={0.01} transparent />
-        {/*<meshPhongMaterial color="#ff0000"  />*/}
-      </mesh>
       <group ref={group} name="Object_4" position={localPosition}>
+
+        {/*<mesh position={[-150,100,-100]} onClick={() => playAudio()} >*/}
+        <mesh position={[0,100,-0]} onClick={() => playAudio()} >
+          <boxGeometry args={[100, 250, 250]} />
+          <meshPhongMaterial color="#ff0000" opacity={0.1} transparent />
+          {/*<meshPhongMaterial color="#ff0000"  />*/}
+        </mesh>
+
         <primitive object={nodes._rootJoint} />
         <group name="0000_Horse" />
         <group name="0001_Horse" />
