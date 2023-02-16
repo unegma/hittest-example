@@ -89,14 +89,14 @@ export default function Horse({ scale = 0.01, position = [-150,0,-150], args = [
   // useHelper(boxRef, BoxHelper, "cyan")
 
   return (
-    <group ref={boxRef} args={args as any} dispose={null} scale={localScale} onClick={() => playAudio()}>
+    <group ref={boxRef} args={args as any} dispose={null} scale={localScale}>
       {/*<mesh position={[0,80,50]} onClick={() => playAudio()} >*/}
       <group ref={group} name="Object_4" position={localPosition}>
 
         {/*<mesh position={[-150,100,-100]} onClick={() => playAudio()} >*/}
         <mesh position={[0,100,-0]} onClick={() => playAudio()} >
           <boxGeometry args={[100, 250, 250]} />
-          <meshPhongMaterial color="#ff0000" opacity={0.1} transparent />
+          <meshPhongMaterial color="#ff0000" opacity={0.001} transparent />
           {/*<meshPhongMaterial color="#ff0000"  />*/}
         </mesh>
 

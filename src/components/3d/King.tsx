@@ -106,13 +106,13 @@ export default function King({ scale = 0.01, position = [0,0,0], args = [0, 0, 0
 
   return (
     // <DreiBox   castShadow>
-    <group ref={boxRef} args={args as any} dispose={null} scale={localScale} position={localPosition} onClick={() => playAudio()}>
+    <group ref={boxRef} args={args as any} dispose={null} scale={localScale} position={localPosition}>
       <group ref={group} name="Armature" rotation={[Math.PI / 2, 0, 0]} position={localPosition}>
 
         {/*<mesh position={[0,100,0]} onClick={() => playAudio()}>*/}
         <mesh position={[0,0,-100]} onClick={() => playAudio()}>
           <boxGeometry args={[50, 50, 190]} />
-          <meshPhongMaterial color="#ff0000" opacity={0.1} transparent />
+          <meshPhongMaterial color="#ff0000" opacity={0.001} transparent />
           {/*<meshPhongMaterial color="#ff0000"  />*/}
         </mesh>
 
