@@ -43,7 +43,7 @@ export default function Horse({ scale = 0.01, position = [-150,0,-150], args = [
     if (!isPresenting) {
       setLocalScale(scale)
 
-      setLocalPosition(position)
+      // setLocalPosition(position) // this causes it to 'stick'?
     } else {
       setLocalScale(scale*xrScaleOffset);
 
@@ -89,7 +89,7 @@ export default function Horse({ scale = 0.01, position = [-150,0,-150], args = [
   // useHelper(boxRef, BoxHelper, "cyan")
 
   return (
-    <group ref={boxRef} args={args as any} dispose={null} scale={localScale}>
+    <group ref={boxRef} args={args as any} dispose={null} scale={localScale} position={localPosition}>
       {/*<mesh position={[0,80,50]} onClick={() => playAudio()} >*/}
       <group ref={group} name="Object_4" position={localPosition}>
 
