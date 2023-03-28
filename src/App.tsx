@@ -8,7 +8,7 @@ import { Box as DreiBox, OrbitControls, Plane, Sphere, Sky, useMatcapTexture } f
 import { usePlane, useBox, Physics, useSphere } from '@react-three/cannon'
 //App minima que permite la colocacion y el arrastre de elementos mediante ReactXR
 
-const texture = new THREE.TextureLoader().load( "src/assets/img/mona_lisa.png" );
+const texture = new THREE.TextureLoader().load( "./assets/img/mona_lisa.png" );
 
 const PictureBoxExample= () => {
 
