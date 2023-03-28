@@ -6,9 +6,7 @@ import {Interactive, useHitTest, ARButton, XR, XRButton, Controllers, Hands, use
 import {Box, Environment, Html, Text} from "@react-three/drei";
 import { Box as DreiBox, OrbitControls, Plane, Sphere, Sky, useMatcapTexture } from '@react-three/drei'
 import { usePlane, useBox, Physics, useSphere } from '@react-three/cannon'
-//App minima que permite la colocacion y el arrastre de elementos mediante ReactXR
-
-const texture = new THREE.TextureLoader().load( "./assets/img/mona_lisa.png" );
+import textureImage from "./assets/img/mona_lisa.png"
 
 const PictureBoxExample= () => {
 
@@ -18,17 +16,20 @@ const PictureBoxExample= () => {
     // @ts-ignore
     hit.decompose(ref.current.position, ref.current.rotation, ref.current.scale)
   })
+  const texture = new THREE.TextureLoader().load(textureImage);
 
-  return <Box ref={ref} args={[0.2, 0.001, 0.35]} >
-    <meshBasicMaterial map={texture} />
-    <Box args={[0.2, 0.001, 0.35]} position={[-0.35,0,0]} /* rotation= {ref.current.rotation} */>
-      <meshBasicMaterial color={'green'} />
+  return (
+    <Box ref={ref} args={[0.2, 0.001, 0.35]} >
+      <meshBasicMaterial map={texture} />
+      <Box args={[0.2, 0.001, 0.35]} position={[-0.35,0,0]} /* rotation= {ref.current.rotation} */>
+        <meshBasicMaterial color={'green'} />
+      </Box>
     </Box>
-  </Box>
+  )
 }
 
 function HitTestExample() {
-  const [active, setActive] = React.useState(false)
+  const [active, setActive] = React.useState(true)
 
   useXREvent('select', () => {
     setActive(!active)
